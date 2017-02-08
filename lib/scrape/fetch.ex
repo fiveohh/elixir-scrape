@@ -5,7 +5,7 @@ defmodule Scrape.Fetch do
     recv_timeout: 30_000
   ]
 
-  def run(url, http_headers \\ [], http_opts \\ @opts) do
+  def run(url, http_headers \\ ["User-Agent": "Elixir"], http_opts \\ @opts) do
     url
     |> HTTPoison.get(http_headers, http_opts)
     |> evaluate
